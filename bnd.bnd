@@ -1,7 +1,9 @@
--buildpath: \
-	lib/gwt-servlet.jar;version=file,\
+-buildpath: lib/gwt-servlet.jar;version=file,\
 	lib/gwt-servlet-deps.jar;version=file,\
-	osgi.core;version=latest
+	osgi.core;version=latest,\
+	org.apache.felix.http.jetty,\
+	slf4j.api,\
+	biz.aQute.bnd.annotation
 Bundle-Version: 2.5.0
 
 
@@ -9,11 +11,13 @@ Import-Package: \
 	javax.*,\
 	*;resolution:=optional
 Export-Package: \
+	com.google.gwt.servlet;version=${Bundle-Version},\
 	com.google.gwt.core.client;version=${Bundle-Version},\
 	com.google.gwt.user.client.rpc;version=${Bundle-Version},\
 	com.google.gwt.user.server.rpc;version=${Bundle-Version},\
 	org.json;version=1.0.0
 Private-Package: \
+	nl.jonghuis.gwt,\
 	com.google.gwt.activity.shared,\
 	com.google.gwt.codegen.server,\
 	com.google.gwt.core.server,\
@@ -98,3 +102,4 @@ Private-Package: \
 	javax.validation.groups,\
 	javax.validation.metadata,\
 	javax.validation.spi
+Service-Component: nl.jonghuis.gwt.*
