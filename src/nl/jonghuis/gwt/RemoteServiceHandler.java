@@ -43,7 +43,7 @@ public class RemoteServiceHandler {
 
     @Reference(dynamic = true, optional = true, multiple = true)
     public void addRemoteService(RemoteService remoteService, Map<String, Object> properties) {
-        BundleContext bundleContext = FrameworkUtil.getBundle(getClass()).getBundleContext();
+        BundleContext bundleContext = FrameworkUtil.getBundle(remoteService.getClass()).getBundleContext();
 
         String path = getPathFromAnnotation(remoteService.getClass());
         if (path == null) {
